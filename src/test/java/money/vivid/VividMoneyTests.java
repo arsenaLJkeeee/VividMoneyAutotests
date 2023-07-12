@@ -7,11 +7,15 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
+
 
 public class VividMoneyTests extends VividMoneyTestBase {
     @Tag("remote")
@@ -20,6 +24,9 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
 
         SelenideElement bankingPopUp = $(".popupMenu__popupItemsChild__VU_Rm");
+        SelenideElement investPopUp = $(".popupMenu__popupContent___tvDX.popupMenu__open__BPaxm");
+        SelenideElement emailInput = $(".Input__root__tPBlU");
+        String eMail = "arsenaljkeeee10@gmail.com";
 
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -31,6 +38,52 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         step("Check if Vivid Prime and Vivid Now are present", () -> {
             bankingPopUp.shouldHave(text("Vivid Prime"), text("Vivid Now"));
+        });
+
+        step("Navigate on Invest", () -> {
+            $(byText("Invest")).hover()
+                    .shouldBe(Condition.visible);
+        });
+
+        step("Check if Crypto and Catalog are present", () -> {
+            investPopUp.shouldHave(text("Crypto"), text("Catalog"));
+        });
+
+        step("Navigate on Rewards", () -> {
+            $(byText("Rewards"))
+                    .shouldBe(Condition.visible)
+                    .hover();
+        });
+
+        step("Click on Business", () -> {
+            $(byText("Business"))
+                    .shouldBe(Condition.visible)
+                    .click();
+        });
+
+
+        step("Click on Get started", () -> {
+            $(byText("Get started"))
+                    .click();
+        });
+
+        step("Set Email", () -> {
+            emailInput
+                    .shouldBe(visible, Duration.ofSeconds(5000))
+                    .setValue(eMail);
+
+        });
+
+        step("Click on Invite me!", () -> {
+            $(byText("Invite me!"))
+                    .shouldBe(Condition.visible)
+                    .click();
+        });
+
+        step("Check Сongrats message", () -> {
+            $("#invite-success-message")
+                    .shouldBe(visible, Duration.ofSeconds(5000))
+                    .shouldHave(text("Congrats"));
         });
 
         sleep(5000);
