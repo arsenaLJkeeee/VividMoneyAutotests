@@ -2,16 +2,15 @@ package money.vivid;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
 import money.vivid.helpers.Attach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 import java.util.Map;
-
-import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class VividMoneyTestBase {
     @BeforeAll
@@ -37,7 +36,6 @@ public class VividMoneyTestBase {
 
     @AfterEach
     void addAttachments() {
-        Attach Attach;
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
@@ -45,3 +43,4 @@ public class VividMoneyTestBase {
 
         closeWebDriver();
     }
+}
