@@ -1,5 +1,6 @@
 package money.vivid;
 
+import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.logevents.SelenideLogger;
@@ -69,6 +70,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         step("Set Phone", () -> {
             phoneInput
+                    .click(ClickOptions.usingJavaScript())
                     .shouldBe(editable)
                     .setValue(phoneNumber);
 
