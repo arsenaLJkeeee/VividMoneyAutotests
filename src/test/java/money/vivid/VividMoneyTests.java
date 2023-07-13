@@ -69,7 +69,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         step("Set Email", () -> {
             emailInput
-                    .shouldBe(visible, Duration.ofSeconds(5000))
+                    .shouldBe(visible, Duration.ofSeconds(5))
                     .setValue(eMail);
 
         });
@@ -82,7 +82,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         step("Check Сongrats message", () -> {
             $("#invite-success-message")
-                    .shouldBe(visible, Duration.ofSeconds(5000))
+                    .shouldBe(visible, Duration.ofSeconds(5))
                     .shouldHave(text("Congrats"));
         });
 
