@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -27,7 +26,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
         SelenideElement investPopUp = $(".popupMenu__popupContent___tvDX.popupMenu__open__BPaxm");
         SelenideElement phoneInput = $("#invite-tab-PHONE");
         //String eMail = "arsenaljkeeee10@gmail.com";
-        String phoneNumber = "+998597078392";
+        String phoneNumber = "998597078392";
 
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -70,6 +69,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         step("Set Phone", () -> {
             phoneInput
+                    .shouldBe(editable)
                     .setValue(phoneNumber);
 
         });
