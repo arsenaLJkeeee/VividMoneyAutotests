@@ -25,9 +25,8 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         SelenideElement bankingPopUp = $(".popupMenu__popupItemsChild__VU_Rm");
         SelenideElement investPopUp = $(".popupMenu__popupContent___tvDX.popupMenu__open__BPaxm");
-        SelenideElement phoneInput = $("#invite-tab-PHONE");
-        //String eMail = "arsenaljkeeee10@gmail.com";
-        String phoneNumber = "998597078392";
+        SelenideElement sendMessageTextArea = $(".styles__textarea__nSdTR");
+        String textmessagefromVladimir = "Hello, i'm Vladimir, professional QA, just hire me!";
 
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -62,31 +61,11 @@ public class VividMoneyTests extends VividMoneyTestBase {
                     .click();
         });
 
-
-        step("Click on Get started", () -> {
-            $(byText("Get started"))
-                    .click();
+        step("Send message into textarea", () -> {
+            sendMessageTextArea
+                    .setValue(textmessagefromVladimir);
         });
 
-        step("Set Phone", () -> {
-            phoneInput
-                    .click(ClickOptions.usingJavaScript())
-                    .shouldBe(editable)
-                    .setValue(phoneNumber);
-
-        });
-
-        step("Click on Invite me!", () -> {
-            $(byText("Invite me!"))
-                    .shouldBe(Condition.visible)
-                    .click();
-        });
-
-        step("Check Сongrats message", () -> {
-            $("#invite-success-message")
-                    .shouldBe(visible, Duration.ofSeconds(5))
-                    .shouldHave(text("Congrats"));
-        });
 
         sleep(5000);
     }
