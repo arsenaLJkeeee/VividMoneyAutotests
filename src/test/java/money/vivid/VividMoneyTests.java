@@ -69,7 +69,6 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         step("Set Email", () -> {
             emailInput
-                    .shouldBe(visible, Duration.ofSeconds(5))
                     .setValue(eMail);
 
         });
