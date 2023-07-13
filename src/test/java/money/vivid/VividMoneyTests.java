@@ -25,7 +25,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         SelenideElement bankingPopUp = $(".popupMenu__popupItemsChild__VU_Rm");
         SelenideElement investPopUp = $(".popupMenu__popupContent___tvDX.popupMenu__open__BPaxm");
-        SelenideElement emailInput = $("#EMAIL");
+        SelenideElement emailInput = $("[name='EMAIL']");
         String eMail = "arsenaljkeeee10@gmail.com";
 
 
