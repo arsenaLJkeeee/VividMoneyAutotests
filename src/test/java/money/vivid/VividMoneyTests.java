@@ -25,7 +25,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
         SelenideElement bankingPopUp = $(".popupMenu__popupItemsChild__VU_Rm");
         SelenideElement investPopUp = $(".popupMenu__popupContent___tvDX.popupMenu__open__BPaxm");
         SelenideElement sendMessageTextArea = $(".styles__textarea__nSdTR");
-        SelenideElement emailInput = $(".InputBox-module__input__DNm_3");
+        SelenideElement emailInput = $("div[data-qa-type='uikit/inlineInput.text']");
         String textMessageFromVladimir = "Hello, i'm Vladimir, professional QA, i'm passionate about testing and Vivid inspired me a lot, just hire me!";
         String emailOfVladimir = "arsenaljkeeee10@gmail.com";
 
