@@ -26,7 +26,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
         SelenideElement bankingPopUp = $(".popupMenu__popupItemsChild__VU_Rm");
         SelenideElement investPopUp = $(".popupMenu__popupContent___tvDX.popupMenu__open__BPaxm");
         SelenideElement sendMessageTextArea = $(".styles__textarea__nSdTR");
-        String textmessagefromVladimir = "Hello, i'm Vladimir, professional QA, just hire me!";
+        String textMessageFromVladimir = "Hello, i'm Vladimir, professional QA, just hire me!";
 
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -63,7 +63,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         step("Send message into textarea", () -> {
             sendMessageTextArea
-                    .setValue(textmessagefromVladimir);
+                    .setValue(textMessageFromVladimir);
         });
 
 
