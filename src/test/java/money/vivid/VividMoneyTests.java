@@ -68,7 +68,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
         });
 
         step("Set Email", () -> {
-            emailInput
+            $(byText("Email"))
                     .setValue(eMail);
 
         });
