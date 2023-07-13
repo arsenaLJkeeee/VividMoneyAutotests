@@ -69,7 +69,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
                     .setValue(textMessageFromVladimir);
         });
 
-        step("Send message into textarea", () -> {
+        step("Put Vladimir's email into emailInput", () -> {
             emailInput
                     .setValue(emailOfVladimir);
         });
