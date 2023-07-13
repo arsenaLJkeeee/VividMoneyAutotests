@@ -25,8 +25,8 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         SelenideElement bankingPopUp = $(".popupMenu__popupItemsChild__VU_Rm");
         SelenideElement investPopUp = $(".popupMenu__popupContent___tvDX.popupMenu__open__BPaxm");
-        SelenideElement emailInput = $(".InlineInput-module__input__wp7u3[name='EMAIL']");
-        String eMail = "arsenaljkeeee10@gmail.com";
+        SelenideElement phoneInput = $("#invite-tab-PHONE");
+        //String eMail = "arsenaljkeeee10@gmail.com";
         String phoneNumber = "+998597078392";
 
 
@@ -69,7 +69,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
         });
 
         step("Set Phone", () -> {
-            $(byText("Phone"))
+            phoneInput
                     .setValue(phoneNumber);
 
         });
