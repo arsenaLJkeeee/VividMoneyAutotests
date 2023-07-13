@@ -25,10 +25,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
         SelenideElement bankingPopUp = $(".popupMenu__popupItemsChild__VU_Rm");
         SelenideElement investPopUp = $(".popupMenu__popupContent___tvDX.popupMenu__open__BPaxm");
         SelenideElement sendMessageTextArea = $(".styles__textarea__nSdTR");
-        SelenideElement emailInput = $(".InlineInput-module__value__dNq0B[data-qa-type='uikit/inlineInput.text'] input");
         String textMessageFromVladimir = "Hello, i'm Vladimir, professional QA, i'm passionate about testing and Vivid inspired me a lot, just hire me!";
-        String emailOfVladimir = "arsenaljkeeee10@gmail.com";
-
 
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -68,15 +65,8 @@ public class VividMoneyTests extends VividMoneyTestBase {
                     .setValue(textMessageFromVladimir);
         });
 
-        step("Put Vladimir's email into emailInput", () -> {
-            emailInput
-                    .click(ClickOptions.usingJavaScript())
-                    .shouldBe(visible, editable, focused)
-                    .sendKeys(emailOfVladimir);
-        });
 
-
-        sleep(5000);
+        sleep(50000);
     }
 }
 
