@@ -70,6 +70,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         step("Put Vladimir's email into emailInput", () -> {
             emailInput
+                    .click(ClickOptions.usingJavaScript())
                     .shouldBe(visible, editable, focused)
                     .sendKeys(emailOfVladimir);
         });
