@@ -76,7 +76,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
 
         step("Send email into email input", () -> {
-            Selenide.executeJavaScript("arguments[0].value = arguments[1]", emailElement, emailFromVladimir);
+            emailElement.setValue(emailFromVladimir);
         });
 
 
