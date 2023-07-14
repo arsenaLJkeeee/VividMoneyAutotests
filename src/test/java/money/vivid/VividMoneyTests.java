@@ -32,7 +32,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
         step("Open main page", () -> open(baseUrl));
         step("Navigate on Banking", () -> {
             $(byText("Banking")).hover()
-                    .shouldBe(Condition.visible);
+                    .shouldBe(visible);
         });
 
         step("Check if Vivid Prime and Vivid Now are present", () -> {
@@ -41,7 +41,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         step("Navigate on Invest", () -> {
             $(byText("Invest")).hover()
-                    .shouldBe(Condition.visible);
+                    .shouldBe(visible);
         });
 
         step("Check if Crypto and Catalog are present", () -> {
@@ -50,13 +50,13 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
         step("Navigate on Rewards", () -> {
             $(byText("Rewards"))
-                    .shouldBe(Condition.visible)
+                    .shouldBe(visible)
                     .hover();
         });
 
         step("Click on Business", () -> {
             $(byText("Business"))
-                    .shouldBe(Condition.visible)
+                    .shouldBe(visible)
                     .click();
         });
 
@@ -64,6 +64,13 @@ public class VividMoneyTests extends VividMoneyTestBase {
             sendMessageTextArea
                     .setValue(textMessageFromVladimir);
         });
+
+        step("Accept cookies", () -> {
+            $(byText("Accept"))
+                    .shouldBe(visible)
+                    .click();
+        });
+
 
         step("Send email into email input", () -> {
             $(byText("Email"))
