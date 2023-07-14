@@ -30,7 +30,6 @@ public class VividMoneyTestBase {
     }
 
     @BeforeEach
-
     void addListener() {
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
     }
