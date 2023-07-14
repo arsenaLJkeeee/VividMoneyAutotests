@@ -83,8 +83,8 @@ public class VividMoneyTests extends VividMoneyTestBase {
             Selenide.executeJavaScript("arguments[0].setAttribute('aria-hidden', 'false');", inputElement);
             Selenide.executeJavaScript("arguments[0].setAttribute('class', 'InputBox-module__box__C1AHT InputBox-module__box_focusedl__zMJeF InputBox-module__box_size_1__W_uCO');", inputElement);
             emailElement
-                    .click(ClickOptions.usingJavaScript())
                     .shouldBe(visible, Duration.ofSeconds(3))
+                    .click(ClickOptions.usingJavaScript())
                     .shouldBe(interactable, editable)
                     .setValue(emailFromVladimir);
         });
