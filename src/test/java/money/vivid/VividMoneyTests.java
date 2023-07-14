@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 
-
+import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
@@ -29,7 +29,11 @@ public class VividMoneyTests extends VividMoneyTestBase {
         SelenideElement sendMessageTextArea = $(".styles__textarea__nSdTR");
         String textMessageFromVladimir = "Hello, i'm Vladimir";
         String emailFromVladimir = "arsenaljkeeee10@gmail.com";
-        SelenideElement emailElement = $(".InputBox-module__main__ZmkBM input[type='email']");
+        SelenideElement emailElement = $$(".InputBox-module__main__ZmkBM input[type='email']")
+                .shouldHave(sizeGreaterThan(0))
+                .shouldHave(attribute("style", not("display: none")))
+                .shouldHave(attribute("style", not("visibility: hidden")))
+                .first();
 
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -77,10 +81,8 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
 
         step("Send email into email input", () -> {
-            emailElement
-                    .click(ClickOptions.usingJavaScript())
-                    .shouldBe(visible, focused)
-                    .setValue(emailFromVladimir);
+            emailElement.scrollIntoView(true).shouldBe(visible).click();
+            emailElement.setValue(emailFromVladimir);
 
         });
 
