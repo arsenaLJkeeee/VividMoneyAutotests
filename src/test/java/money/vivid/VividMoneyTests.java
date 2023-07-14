@@ -1,11 +1,13 @@
 package money.vivid;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+
 
 
 import static com.codeborne.selenide.Condition.*;
@@ -26,6 +28,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
         SelenideElement sendMessageTextArea = $(".styles__textarea__nSdTR");
         String textMessageFromVladimir = "Hello, i'm Vladimir";
         String emailFromVladimir = "arsenaljkeeee10@gmail.com";
+        SelenideElement emailElement = $(byText("Email"));
 
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -73,8 +76,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
 
         step("Send email into email input", () -> {
-            $(byText("Email"))
-                    .sendKeys(emailFromVladimir);
+            Selenide.executeJavaScript("arguments[0].value = arguments[1]", emailElement, emailFromVladimir);
         });
 
 
