@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 
 
 
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selectors.byText;
@@ -30,6 +31,8 @@ public class VividMoneyTests extends VividMoneyTestBase {
         String textMessageFromVladimir = "Hello, i'm Vladimir";
         String emailFromVladimir = "arsenaljkeeee10@gmail.com";
         SelenideElement emailElement = $(".InputBox-module__main__ZmkBM input[type='email']");
+        SelenideElement inputElement = $(".InlineInput-module__input__wp7u3");
+
 
 
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -77,11 +80,11 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
 
         step("Send email into email input", () -> {
+            Selenide.executeJavaScript("arguments[0].setAttribute('aria-hidden', 'false');", inputElement);
             emailElement
                     .click(ClickOptions.usingJavaScript())
                     .shouldBe(visible, focused, editable, interactable)
                     .setValue(emailFromVladimir);
-
         });
 
 
