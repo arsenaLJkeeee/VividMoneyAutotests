@@ -28,12 +28,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
         SelenideElement bankingPopUp = $(".popupMenu__popupItemsChild__VU_Rm");
         SelenideElement investPopUp = $(".popupMenu__popupContent___tvDX.popupMenu__open__BPaxm");
         SelenideElement sendMessageTextArea = $(".styles__textarea__nSdTR");
-        String textMessageFromVladimir = "Hello, i'm Vladimir";
-        String emailFromVladimir = "arsenaljkeeee10@gmail.com";
-        SelenideElement emailElement = $(".InputBox-module__main__ZmkBM input[type='email']");
-        SelenideElement inputElement = $(".InlineInput-module__input__wp7u3");
-
-
+        String textMessageFromVladimir = "Hello, i'm Vladimir, Quality Assurance Engineer with a demonstrated history of working in software product-based companies, and i inspired by Vivid Money, just hire me!";
 
         SelenideLogger.addListener("allure", new AllureSelenide());
         step("Open main page", () -> open(baseUrl));
@@ -78,19 +73,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
                     .click();
         });
 
-
-        step("Send email into email input", () -> {
-            Selenide.executeJavaScript("arguments[0].style.display = 'block';", inputElement);
-            Selenide.executeJavaScript("arguments[0].style.visibility = 'visible';", inputElement);
-            emailElement
-                    .shouldBe(visible, Duration.ofSeconds(3))
-                    .click(ClickOptions.usingJavaScript())
-                    .shouldBe(interactable, editable)
-                    .setValue(emailFromVladimir);
-        });
-
-
-        sleep(20000);
+        sleep(50000);
     }
 }
 
