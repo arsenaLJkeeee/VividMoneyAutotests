@@ -79,6 +79,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
         step("Send email into email input", () -> {
             emailElement
                     .click(ClickOptions.usingJavaScript())
+                    .shouldBe(visible, focused)
                     .setValue(emailFromVladimir);
 
         });
