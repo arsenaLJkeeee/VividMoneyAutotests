@@ -80,8 +80,8 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
 
         step("Send email into email input", () -> {
-            Selenide.executeJavaScript("arguments[0].setAttribute('aria-hidden', 'false');", inputElement);
-            Selenide.executeJavaScript("arguments[0].setAttribute('class', 'InputBox-module__box__C1AHT InputBox-module__box_focusedl__zMJeF InputBox-module__box_size_1__W_uCO');", inputElement);
+            Selenide.executeJavaScript("arguments[0].style.display = 'block';", inputElement);
+            Selenide.executeJavaScript("arguments[0].style.visibility = 'visible';", inputElement);
             emailElement
                     .shouldBe(visible, Duration.ofSeconds(3))
                     .click(ClickOptions.usingJavaScript())
