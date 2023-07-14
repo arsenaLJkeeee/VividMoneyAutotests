@@ -28,7 +28,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
         SelenideElement sendMessageTextArea = $(".styles__textarea__nSdTR");
         String textMessageFromVladimir = "Hello, i'm Vladimir";
         String emailFromVladimir = "arsenaljkeeee10@gmail.com";
-        SelenideElement emailElement = $("#email-label");
+        SelenideElement emailElement = $(".InputBox-module__main__ZmkBM input[type='email']");
 
 
         SelenideLogger.addListener("allure", new AllureSelenide());
