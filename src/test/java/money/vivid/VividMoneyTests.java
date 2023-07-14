@@ -1,5 +1,6 @@
 package money.vivid;
 
+import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
@@ -76,7 +77,10 @@ public class VividMoneyTests extends VividMoneyTestBase {
 
 
         step("Send email into email input", () -> {
-            emailElement.setValue(emailFromVladimir);
+            emailElement
+                    .click(ClickOptions.usingJavaScript())
+                    .setValue(emailFromVladimir);
+
         });
 
 
