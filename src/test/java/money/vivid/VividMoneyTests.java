@@ -22,7 +22,8 @@ public class VividMoneyTests extends VividMoneyTestBase {
     @Test
     void smokeVividMoneyMainPageTest() {
 
-
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
         SelenideElement bankingPopUp = $(".popupMenu__popupItemsChild__VU_Rm");
         SelenideElement investPopUp = $(".popupMenu__popupContent___tvDX.popupMenu__open__BPaxm");
         SelenideElement sendMessageTextArea = $(".styles__textarea__nSdTR");
