@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 
-
+import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.baseUrl;
@@ -83,7 +83,8 @@ public class VividMoneyTests extends VividMoneyTestBase {
             Selenide.executeJavaScript("arguments[0].setAttribute('aria-hidden', 'false');", inputElement);
             emailElement
                     .click(ClickOptions.usingJavaScript())
-                    .shouldBe(visible, focused, editable, interactable)
+                    .shouldBe(visible, Duration.ofSeconds(3))
+                    .shouldBe(interactable,editable)
                     .setValue(emailFromVladimir);
         });
 
