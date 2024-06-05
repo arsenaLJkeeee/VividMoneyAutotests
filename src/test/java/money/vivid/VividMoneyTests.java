@@ -73,7 +73,7 @@ public class VividMoneyTests extends VividMoneyTestBase {
                     .click();
         });
 
-        sleep(50000);
+        sleep(40000);
     }
 }
 
